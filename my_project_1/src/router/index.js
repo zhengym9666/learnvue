@@ -46,4 +46,4 @@ const router = new Router({
   mode:'history'//干掉地址栏里边的#号键
 })
 
-export default router
+export default router/*输出路由*/

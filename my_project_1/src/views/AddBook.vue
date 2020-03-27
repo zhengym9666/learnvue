@@ -104,12 +104,17 @@
       },
       test1(msg) {
         return new Promise((resolve,reject) =>{
+          //第一层业务逻辑
           console.log("test1-1")
+          //执行完第一层逻辑，调用执行第二层逻辑
           resolve("test1-2")//顶层必须要resolve调用者Promise.all才知道是完成调用，才会调用它的then方法，即promiseTest的then，否则它不会执行
         }).then(data =>{
+          //第二层逻辑
           console.log(data)
+          //执行完第二层逻辑，调用第三层逻辑
           return Promise.resolve(data+"-1");
         }).then(data=>{
+          //第三层逻辑
           console.log(data);
         }).catch(err =>{
           console.log("test1出错")
